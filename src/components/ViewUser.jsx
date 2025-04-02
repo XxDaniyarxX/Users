@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {fetchUsers} from "../Redux/usersReducer.js";
+import { fetchUsers } from "../Redux/usersReducer.js";
 import { useParams } from 'react-router-dom';
+import './styles/ViewUser.css'; 
 
 const ViewUser = () => {
     const { id } = useParams();
@@ -15,15 +16,17 @@ const ViewUser = () => {
     }, [user, dispatch]);
 
     if (!user) {
-        return <div>Загрузка...</div>;
+        return <div className="loading">Загрузка...</div>;
     }
 
     return (
-        <div>
-            <h1>Детальная информация о пользователе</h1>
-            <p>Имя: {user.name}</p>
-            <p>Email: {user.email}</p>
-            <p>Возраст: {user.age}</p>
+        <div className="user-details">
+            <h1 className="user-details__title">Детальная информация о пользователе</h1>
+            <div className="user-details__info">
+                <p><strong>Имя:</strong> {user.name}</p>
+                <p><strong>Email:</strong> {user.Email}</p>
+                <p><strong>Возраст:</strong> {user.age}</p>
+            </div>
         </div>
     );
 };
