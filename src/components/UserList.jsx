@@ -36,15 +36,15 @@ const UserList = () => {
                     <tbody>
                     {users.map(user => (
                         <tr key={user.id} className="hover:bg-gray-100">
-                            <td className="px-4 py-2 border-b">{user.name}</td>
-                            <td className="px-4 py-2 border-b">{user.Email}</td>
+                            <td className="px-4 py-2 border-b" style={{textAlign: "center"}}>{user.name}</td>
+                            <td className="px-4 py-2 border-b" style={{textAlign: "center"}}>{user.Email}</td>
                             <td className="px-4 py-2 border-b" style={{textAlign: "center"}}>{user.age}</td>
-                            <td className="px-4 py-2 border-b">
+                            <td className="px-4 py-2 border-b" style={{textAlign: 'center'}}>
                                 <Link to={`/edit/${user.id}`} className="text-blue-500 hover:underline mr-2">Редактировать</Link>
                                 <button onClick={() => handleDelete(user.id)} className="text-red-500 hover:underline mr-2">Удалить</button>
                                 <Link to={`/user/${user.id}`} className="text-green-500 hover:underline">Просмотр</Link>
                             </td>
-                        </tr>
+                        </tr>   
                     ))}
                     </tbody>
                 </table>
